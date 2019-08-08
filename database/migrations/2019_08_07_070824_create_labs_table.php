@@ -15,9 +15,10 @@ class CreateLabsTable extends Migration
     {
         Schema::create('labs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('kd_lab');
-            $table->bigInteger('no_rm')->unsigned();
-            $table->foreign('no_rm')->references('id')->on('rekam_medis')->onDelete('CASCADE');
+            $table->bigInteger('obat_id')->unsigned();
+            $table->foreign('obat_id')->references('id')->on('obats')->onDelete('CASCADE');
+            $table->bigInteger('rm_id')->unsigned();
+            $table->foreign('rm_id')->references('id')->on('rekam_medis')->onDelete('CASCADE');
             $table->string('hasil_lab');
             $table->string('ket')->nullable();
             $table->timestamps();

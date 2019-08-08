@@ -16,6 +16,8 @@ class CreateRekamMedisTable extends Migration
         Schema::create('rekam_medis', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('no_rm');
+            $table->bigInteger('tindakan_id')->unsigned();
+            $table->foreign('tindakan_id')->references('id')->on('tindakans')->onDelete('CASCADE');
             $table->bigInteger('obat_id')->unsigned();
             $table->foreign('obat_id')->references('id')->on('obats')->onDelete('CASCADE');
             $table->bigInteger('user_id')->unsigned();
