@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class RekamMedis extends Model
 {
+    protected $fillable = ['no_rm', 'tindakan_id', 'obat_id',
+     'pasien_id', 'diagnosa', 'resep', 'keluhan', 'tgl_pemeriksaan', 'ket'];
+
+    public $timestamps = true;
+
     public function user()
     {
         return $this->belongsTo('App\User', 'usser_id');

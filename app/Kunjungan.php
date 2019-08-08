@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kunjungan extends Model
 {
+    protected $fillable = ['tgl_kunjungan', 'pasien_id', 'poli_id', 'jam_kunjungan'];
+
+    public $timestamps = true;
+
     public function poliklinik()
     {
         return $this->belongsTo('App\Poliklinik', 'poli_id');
@@ -15,5 +19,5 @@ class Kunjungan extends Model
     {
         return $this->belongsTo('App\Pasien', 'pasien_id');
     }
-    
+
 }
