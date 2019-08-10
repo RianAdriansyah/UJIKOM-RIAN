@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/poli', 'PoliklinikController@index');
+
+Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], function(){
+    Route::get('/', function(){
+        return 'hallo';
+    });
+    Route::resource('user', 'UserController');
+});
