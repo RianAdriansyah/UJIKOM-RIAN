@@ -22,7 +22,14 @@ Route::get('/poli', 'PoliklinikController@index');
 
 Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], function(){
     Route::get('/', function(){
-        return 'hallo';
+        return 'hallo Admin';
+    });
+    Route::get('/member', function(){
+        return 'hallo Member';
     });
     Route::resource('user', 'UserController');
+});
+
+Route::get('/member', function(){
+    return 'hallo Member';
 });
