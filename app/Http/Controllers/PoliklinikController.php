@@ -15,7 +15,7 @@ class PoliklinikController extends Controller
     public function index()
     {
         $poli = Poliklinik::all();
-        return view('index', compact('poli'));
+        return view('poliklinik.index', compact('poli'));
     }
 
     /**

@@ -18,7 +18,6 @@ Route::get('/', function () {
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/poli', 'PoliklinikController@index');
 
 Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], function(){
     Route::get('/', function(){
@@ -28,6 +27,9 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], fu
         return view('home');
     });
     Route::resource('user', 'UserController');
+    Route::resource('poliklinik', 'PoliklinikController');
+    Route::resource('obat', 'ObatController');
+    Route::resource('tindakan', 'TindakanController');
 });
 
 Route::get('/member', function(){

@@ -34,7 +34,7 @@ class HomeController extends Controller
     }
 
     protected function adminDashboard(){
-        return redirect('backend/home');
+        return redirect('backend/poliklinik/');
     }
 
     protected function memberDashboard(){
