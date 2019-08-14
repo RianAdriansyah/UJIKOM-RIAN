@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/poli', 'PoliklinikController@index');
@@ -24,8 +24,8 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], fu
     Route::get('/', function(){
         return 'hallo Admin';
     });
-    Route::get('/member', function(){
-        return 'hallo Member';
+    Route::get('/home', function(){
+        return view('home');
     });
     Route::resource('user', 'UserController');
 });

@@ -48,8 +48,6 @@
                         </li>
                         @endrole
 
-                        
-                        
                         @guest
                         
                         <li class="nav-item">
