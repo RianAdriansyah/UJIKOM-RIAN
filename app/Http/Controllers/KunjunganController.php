@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kunjungan;
+use App\Pasien;
+use App\Poliklinik;
 
 class KunjunganController extends Controller
 {
@@ -26,7 +28,9 @@ class KunjunganController extends Controller
     public function create()
     {
         $kjn = Kunjungan::all();
-        return view('kunjungan.create', compact('kjn'));
+        $pasien = Pasien::all();
+        $poli = Poliklinik::all();
+        return view('kunjungan.create', compact('kjn', 'pasien', 'poli'));
     }
 
     /**
@@ -37,7 +41,14 @@ class KunjunganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kjn = new Kunjungan();
+        $kjn->tgl_kunjungan = $request->tgl_kunjungan;
+        $kjn->pasien_id = $request->pasien_id;
+        $kjn->poli_id = $request->poli_id;
+        $kjn->jam_kunjungan = $request->jam_kunjungan;
+        $kjn->save();
+
+        return redirect()->route('kunjungan.index');
     }
 
     /**
@@ -49,7 +60,9 @@ class KunjunganController extends Controller
     public function show($id)
     {
         $kjn = Kunjungan::findOrFail($id);
-        return view('kunjungan.show', compact('kjn'));
+        $pasien = Pasien::all();
+        $poli = Poliklinik::all();
+        return view('kunjungan.show', compact('kjn', 'pasien', 'poli'));
     }
 
     /**
@@ -61,7 +74,9 @@ class KunjunganController extends Controller
     public function edit($id)
     {
         $kjn = Kunjungan::findOrFail($id);
-        return view('kunjungan.edit', compact('kjn'));
+        $pasien = Pasien::all();
+        $poli = Poliklinik::all();
+        return view('kunjungan.edit', compact('kjn', 'pasien', 'poli'));
     }
 
     /**
@@ -73,7 +88,14 @@ class KunjunganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kjn = Kunjungan::findOrFail($id);
+        $kjn->tgl_kunjungan = $request->tgl_kunjungan;
+        $kjn->pasien_id = $request->pasien_id;
+        $kjn->poli_id = $request->poli_id;
+        $kjn->jam_kunjungan = $request->jam_kunjungan;
+        $kjn->save();
+
+        return redirect()->route('kunjungan.index');
     }
 
     /**

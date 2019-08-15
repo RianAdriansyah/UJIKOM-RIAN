@@ -38,7 +38,7 @@
                                     @foreach($tdk as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->kd_tindakans }}</td>
+                                        <td>{{ $data->kd_tindakan }}</td>
                                         <td>{{ $data->nm_tindakan }}</td>
                                         <td>{{ $data->ket }}</td>
                                         <td>

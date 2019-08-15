@@ -21,7 +21,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="">Kode Tindakan</label>
-                            <input type="text" name="kd_tindakans" class="form-control" value="{{ $tdk->kd_tindakans }}" disabled>
+                            <input type="text" name="kd_tindakan" class="form-control" value="{{ $tdk->kd_tindakans }}" disabled>
                                 </div>
                             <div class="form-group">
                                 <label for="">Nama Tindakan</label>

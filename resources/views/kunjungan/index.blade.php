@@ -10,16 +10,16 @@
     {{-- <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script> --}}
-    <title>Data Pasien</title>
+    <title>Data Kunjungan</title>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <center>
-                        <a href="{{ route('pasien.create') }}" 
+                        <a href="{{ route('kunjungan.create') }}" 
                             class="btn btn-primary">Tambah</a>
                         </center>
                         <br>
@@ -28,43 +28,31 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">No Pasien</th>
+                                        <th scope="col">Tanggal Kunjungan</th>
                                         <th scope="col">Nama Pasien</th>
-                                        <th scope="col">Jenis Kelamin</th>
-                                        <th scope="col">Agama</th>
-                                        <th scope="col">Alamat</th>
-                                        <th scope="col">Tanggal Lahir</th>
-                                        <th scope="col">Usia</th>
-                                        <th scope="col">No Telpon</th>
-                                        <th scope="col">No KK</th>
-                                        <th scope="col">Hub. Keluarga</th>
+                                        <th scope="col">Nama Poliklinik</th>
+                                        <th scope="col">Jam Kunjungan</th>
                                         <th colspan="3" class="text-center">Aksi</th>
                                     </tr>
                                     </thead>
                                     @php $no = 1; @endphp
-                                    @foreach($pasien as $data)
+                                    @foreach($kjn as $data)
                                     <tr>
                                         <td>{{ $no++ }}</td>
-                                        <td>{{ $data->no_pasien }}</td>
-                                        <td>{{ $data->nm_pasien }}</td>
-                                        <td>{{ $data->jk }}</td>
-                                        <td>{{ $data->agama }}</td>
-                                        <td>{{ $data->alamat }}</td>
-                                        <td>{{ $data->tgl_lahir }}</td>
-                                        <td>{{ $data->usia }} Tahun</td>
-                                        <td>{{ $data->no_tlp }}</td>
-                                        <td>{{ $data->nm_kk }}</td>
-                                        <td>{{ $data->hub_kel }}</td>
+                                        <td>{{ $data->tgl_kunjungan }}</td>
+                                        <td>{{ $data->pasien->nm_pasien }}</td>
+                                        <td>{{ $data->poliklinik->nm_poli }}</td>
+                                        <td>Pukul {{ $data->jam_kunjungan }} WIB</td>
                                         <td>
-                                        <a href="{{ route('pasien.edit', $data->id) }}" 
+                                        <a href="{{ route('kunjungan.edit', $data->id) }}" 
                                             class="btn btn-sm btn-success">Edit Data</a>
                                         </td>
 										<td>
-                                            <a href="{{ route('pasien.show', $data->id) }}" 
+                                            <a href="{{ route('kunjungan.show', $data->id) }}" 
                                             class="btn btn-sm btn-primary">Show Data</a>
                                         </td>
                                         <td>
-                                            <form action="{{ route('pasien.destroy', $data->id) }}" method="post">
+                                            <form action="{{ route('kunjungan.destroy', $data->id) }}" method="post">
                                             {{csrf_field()}}
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <button class="btn btn-sm btn-danger" type="submit">

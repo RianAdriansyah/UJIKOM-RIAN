@@ -30,6 +30,8 @@ Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'role:admin']], fu
     Route::resource('poliklinik', 'PoliklinikController');
     Route::resource('obat', 'ObatController');
     Route::resource('tindakan', 'TindakanController');
+    Route::resource('pasien', 'PasienController');
+    Route::resource('kunjungan', 'KunjunganController');
 });
 
 Route::get('/member', function(){

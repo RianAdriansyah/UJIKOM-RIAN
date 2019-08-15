@@ -32,6 +32,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @role('admin')
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('poliklinik.index') }}">Poliklinik</a>
@@ -42,19 +43,27 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('tindakan.index') }}">Tindakan</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('pasien.index') }}">Pasien</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('kunjungan.index') }}">Kunjungan</a>
+                        </li>
+                        
                     </ul>
+                    @endrole
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @role('admin')
-                        {{-- <li class="nav-item">
+                        {{-- @role('admin')
+                        <li class="nav-item">
                             <a class="nav-link" href="/">Menu Admin</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admin">Menu Admin</a>
-                        </li> --}}
-                        @endrole
+                        </li>
+                        @endrole --}}
 
                         @guest
                         

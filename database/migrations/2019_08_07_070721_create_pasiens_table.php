@@ -17,12 +17,13 @@ class CreatePasiensTable extends Migration
             $table->bigIncrements('id');
             $table->string('no_pasien');
             $table->string('nm_pasien');
-            $table->string('jk');
-            $table->string('agama');
+            $table->enum('jk', ['Laki Laki', 'Perempuan', 'Netral']);
+            $table->enum('agama', ['Islam', 'Kristen Protestan', 'Kristen Katolik', 'Hindu', 
+            'Buddha', 'Sunda Wiwitan']);
             $table->text('alamat');
             $table->date('tgl_lahir');
             $table->integer('usia');
-            $table->integer('no_tlp');
+            $table->string('no_tlp');
             $table->string('nm_kk');
             $table->string('hub_kel');
             $table->timestamps();

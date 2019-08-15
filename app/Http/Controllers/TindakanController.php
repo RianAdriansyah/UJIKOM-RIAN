@@ -38,7 +38,7 @@ class TindakanController extends Controller
     public function store(Request $request)
     {
         $tdk = new Tindakan();
-        $tdk->kd_tindakans = $request->kd_tindakans;
+        $tdk->kd_tindakan = $request->kd_tindakan;
         $tdk->nm_tindakan = $request->nm_tindakan;
         $tdk->ket = $request->ket;
         $tdk->save();
@@ -80,7 +80,7 @@ class TindakanController extends Controller
     public function update(Request $request, $id)
     {
         $tdk = Tindakan::findOrFail($id);
-        $tdk->kd_tindakans = $request->kd_tindakans;
+        $tdk->kd_tindakan = $request->kd_tindakan;
         $tdk->nm_tindakan = $request->nm_tindakan;
         $tdk->ket = $request->ket;
         $tdk->save();

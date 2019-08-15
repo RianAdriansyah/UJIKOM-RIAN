@@ -15,7 +15,7 @@ class CreateTindakansTable extends Migration
     {
         Schema::create('tindakans', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('kd_tindakans');
+            $table->string('kd_tindakan');
             $table->string('nm_tindakan');
             $table->string('ket')->nullable();
             $table->timestamps();
