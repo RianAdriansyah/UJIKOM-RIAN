@@ -1,0 +1,52 @@
+@extends('layouts.app')
+
+@section('content')
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show Data | Lab</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="card">
+                    <div class="card-header">Show Data lab</div>
+                    <div class="card-body">
+                    <form action="{{ route('lab.show', $lab->id) }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                                <label for="">Rekam Medis</label>
+                            <input type="text" name="rm_id" class="form-control" value="{{ $lab->rekam_medis->pasien->nm_pasien }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Nama Obat</label>
+                            <input type="text" name="obat_id" class="form-control" value="{{ $lab->rekam_medis->obat->nm_obat }}" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Hasil Lab</label>
+                            <textarea name="hasil_lab" cols="30" rows="5" class="form-control" disabled>{{ $lab->hasil_lab }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Keterangan</label>
+                            <textarea name="ket" cols="30" rows="5" class="form-control" disabled>{{ $lab->ket }}</textarea>
+                            </div>
+        
+                            <button type="submit" class="btn btn-md btn-info">Simpan</button>
+                            <a name="" id="" class="btn btn-md btn-warning" 
+                            href="{{ route('lab.index') }}" role="button">Kembali</a>
+                            
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+@endsection

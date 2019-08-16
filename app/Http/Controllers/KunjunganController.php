@@ -16,7 +16,7 @@ class KunjunganController extends Controller
      */
     public function index()
     {
-        $kjn = Kunjungan::all();
+        $kjn = Kunjungan::with('pasien', 'poliklinik')->get();
         return view('kunjungan.index', compact('kjn'));
     }
 
@@ -30,6 +30,7 @@ class KunjunganController extends Controller
         $kjn = Kunjungan::all();
         $pasien = Pasien::all();
         $poli = Poliklinik::all();
+
         return view('kunjungan.create', compact('kjn', 'pasien', 'poli'));
     }
 

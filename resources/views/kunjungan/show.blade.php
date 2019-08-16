@@ -37,7 +37,7 @@
                             </div>
         
                             <a name="" id="" class="btn btn-md btn-warning" 
-                            href="{{ route('obat.index') }}" role="button">Kembali</a>
+                            href="{{ route('kunjungan.index') }}" role="button">Kembali</a>
                             
                             </form>
                     </div>

@@ -13,7 +13,7 @@ class RekamMedis extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'usser_id');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     public function pasien()
@@ -28,11 +28,16 @@ class RekamMedis extends Model
 
     public function tindakan()
     {
-        return $this->belongsTo('App\Tindakan'. 'tindakan_id');
+        return $this->belongsTo('App\Tindakan', 'tindakan_id');
     }
 
     public function lab()
     {
         return $this->hasMany('App\Lab', 'rm_id');
+    }
+
+    public function kunjungan()
+    {
+        return $this->belongsTo('App\Kunjungan', 'kunjungan_id');
     }
 }

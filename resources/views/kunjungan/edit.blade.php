@@ -47,7 +47,7 @@
         
                             <button type="submit" class="btn btn-md btn-info">Simpan</button>
                             <a name="" id="" class="btn btn-md btn-warning" 
-                            href="{{ route('obat.index') }}" role="button">Kembali</a>
+                            href="{{ route('kunjungan.index') }}" role="button">Kembali</a>
                             
                             </form>
                     </div>

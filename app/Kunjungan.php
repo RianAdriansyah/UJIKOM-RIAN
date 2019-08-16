@@ -20,4 +20,9 @@ class Kunjungan extends Model
         return $this->belongsTo('App\Pasien', 'pasien_id');
     }
 
+    public function dokter()
+    {
+        return $this->hasMany('App\Dokter', 'kunjungan_id');
+    }
+
 }

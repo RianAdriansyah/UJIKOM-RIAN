@@ -49,6 +49,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('kunjungan.index') }}">Kunjungan</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('rekammedis.index') }}">Rekam Medis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('dokter.index') }}">Dokter</a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('lab.index') }}">Lab</a>
+                            </li>
                         
                     </ul>
                     @endrole

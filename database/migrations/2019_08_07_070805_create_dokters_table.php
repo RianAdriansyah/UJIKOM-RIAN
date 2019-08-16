@@ -18,13 +18,14 @@ class CreateDoktersTable extends Migration
             $table->string('kd_dokter');
             $table->bigInteger('poli_id')->unsigned();
             $table->foreign('poli_id')->references('id')->on('polikliniks')->onDelete('CASCADE');
-            $table->date('tgl_kunjungan');
+            $table->bigInteger('kunjungan_id')->unsigned();
+            $table->foreign('kunjungan_id')->references('id')->on('kunjungans')->onDelete('CASCADE');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('nm_dokter');
             $table->string('sip');
             $table->string('tempat_lahir');
-            $table->integer('no_tlp');
+            $table->string('no_tlp');
             $table->text('alamat');
             $table->timestamps();
         });

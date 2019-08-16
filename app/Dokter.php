@@ -20,4 +20,9 @@ class Dokter extends Model
     {
         return $this->belongsTo('App\Poliklinik', 'poli_id');
     }
+
+    public function kunjungan()
+    {
+        return $this->belongsTo('App\Kunjungan', 'kunjungan_id');
+    }
 }
